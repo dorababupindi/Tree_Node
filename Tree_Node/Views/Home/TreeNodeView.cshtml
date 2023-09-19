@@ -1,0 +1,18 @@
+﻿@model Tree_Node.Models.TreeNodeView
+
+@if (Model!=null)
+{
+	for (int i = 0; i < Model.Parents.Count; i++)
+	{
+		<ul>
+			<span style="font-size:10px; padding-right:5px">▼</span><span>@Model.Parents[i].Name</span> 
+		</ul>
+		for (int j = 0; j < Model.ChildNames[i].Count; j++)
+		{
+			<li>
+				@Model.ChildNames[i][j]
+			</li>
+		}
+
+	}
+}

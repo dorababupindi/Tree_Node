@@ -1,0 +1,101 @@
+﻿@model List<Tree_Node.Models.TreeNodeMaster>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<table>
+    <tr>
+        @*<th><input id="selectall" type="radio" /></th>*@
+        <th id="nodeid">Node Id</th>
+        <th id="nodename">Node Name</th>
+        <th id="parentid">Parent Node Id</th>
+        <th id="isactive">Is Active</th>
+        <th id="actions">Actions</th>
+    </tr>
+    @foreach (var row in Model)
+    {
+        <tr>
+            @*<td><input class="child" type="radio" value="@row.NodeId" /></td>*@
+            <td>@row.NodeId</td>
+            <td>@row.NodeName</td>
+            <td>@row.ParentNodeId</td>
+            <td>@row.IsActive</td>
+            <td><button type="button" class="edit btn btn-primary" data-toggle="modal" data-target="#editmodal" value="@row.NodeId">Edit Parent id</button><button class="delete btn btn-danger" value="@row.NodeId" style="margin-left:10px;">Delete</button></td>
+
+        </tr>
+
+    }
+</table>
+
+@*<div style="margin-top:15px;">
+    <button>+ Add Row</button>
+</div>*@
+
+@*<div style="display:none">
+    <form id="Addrow" method="post">
+        <label for="nodename">Input Data:</label>
+        <input type="text" id="nodename" name="nodename" required>
+        <label for="parentnodeid">Input Data:</label>
+        <input type="text" id="parentnodeid" name="parentnodeid" required>
+        <input type="submit" value="Submit">
+    </form>
+</div>*@
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" id="addrow" data-toggle="modal" data-target="#exampleModalCenter">
+    + Add Row/Node
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label for="nodename1">Node Name</label>
+                    <input type="text" id="nodename1" name="nodename" required>
+                </div>
+                <div style="margin-top:10px">
+                    <label for="parentnodeid">Parent Node Id</label>
+                    <input type="text" id="parentnodeid" name="parentnodeid" required>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="addsubmit" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <label for="parentnodeid1">Parent Node Id</label>
+                    <input type="text" id="parentnodeid1" name="parentnodeid" required>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="editsubmit" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+   
+</script>
